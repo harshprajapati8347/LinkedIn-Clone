@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from "styled-components";
 
-const Rightside = () => {
+const Rightside = (props) => {
   return (
     <Container>
       <FollowCard>
@@ -38,8 +38,9 @@ const Rightside = () => {
       </FollowCard>
       <BannerCard>
         <img
-          src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"
+          src="/images/linkedin.png"
           alt=""
+          style={{ height: "100px", width: "100px" }}
         />
       </BannerCard>
     </Container>

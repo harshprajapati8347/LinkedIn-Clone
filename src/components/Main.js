@@ -1,19 +1,40 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from "styled-components";
 import InputOption from "./InputOption";
+import PostModel from "./PostModel";
 import TodayIcon from "@material-ui/icons/Today";
 import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import EventIcon from "@material-ui/icons/Event";
 import ViewDayIcon from "@material-ui/icons/ViewDay";
+import { useState } from "react";
 
-const Main = () => {
+const Main = (props) => {
+  const [showModel, setShowModel] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    switch (showModel) {
+      case "open":
+        setShowModel("close");
+        break;
+      case "close":
+        setShowModel("open");
+        break;
+      default:
+        setShowModel("close");
+        break;
+    }
+  };
   return (
     <>
       <Container>
         <ShareBox>
           <div>
             <img src="/images/user.svg" alt="" />
-            <button>Start a post</button>
+            <button onClick={handleClick}>Start a post</button>
           </div>
           <div
             className="FeedInputOptions"
@@ -34,83 +55,69 @@ const Main = () => {
               title="Write article"
               color="#7FC15E"
             />
-            {/* <button>
-              <img src="/images/photo-icon.svg" alt="" />
-              <span>Photo</span>
-            </button>
-            <button>
-              <img src="/images/video-icon.svg" alt="" />
-              <span>Video</span>
-            </button>
-            <button>
-              <img src="/images/event-icon.svg" alt="" />
-              <span>Event</span>
-            </button>
-            <button>
-              <img src="/images/article-icon.svg" alt="" />
-              <span>Article</span>
-            </button> */}
           </div>
         </ShareBox>
-
-        <Article>
-          <SharedActor>
-            <a>
-              <img src="/images/user.svg" alt="" />
-              <div>
-                <span>Title</span>
-                <span>Info</span>
-                <span>Date</span>
-              </div>
-            </a>
-            <button>
-              <img src="/images/ellipsis.svg" alt="" />
-            </button>
-          </SharedActor>
-          <Description>Description</Description>
-          <SharedImg>
-            <a>
-              <img src="/images/shared-image.png" alt="" />
-            </a>
-          </SharedImg>
-          <SocialCounts>
-            <li>
+        <div>
+          <Article>
+            <SharedActor>
+              <a>
+                <img src="/images/user.svg" alt="" />
+                <div>
+                  <span>Title</span>
+                  <span>Info</span>
+                  <span>Date</span>
+                </div>
+              </a>
               <button>
-                <img src="/images/liked.svg" alt="LIKE" />
-
-                <img src="/images/praised.svg" alt="PRAISE" />
-
-                <img src="/images/empathy.svg" alt="EMPATHY" />
-
-                <span>75</span>
+                <img src="/images/ellipsis.svg" alt="" />
               </button>
-            </li>
-            <li>
-              <a>2 comments</a>
-            </li>
-          </SocialCounts>
-          <SocialActions>
-            <button>
-              <img src="/images/like.svg" alt="" />
-              <span>Like</span>
-            </button>
+            </SharedActor>
+            <Description>Description</Description>
+            <SharedImg>
+              <a>
+                <img src="/images/shared-image.png" alt="" />
+              </a>
+            </SharedImg>
+            <SocialCounts>
+              <li>
+                <button>
+                  <img src="/images/liked.svg" alt="LIKE" />
 
-            <button>
-              <img src="/images/comment.svg" alt="" />
-              <span>Comment</span>
-            </button>
+                  <img src="/images/praised.svg" alt="PRAISE" />
 
-            <button>
-              <img src="/images/share.svg" alt="" />
-              <span>Share</span>
-            </button>
+                  <img src="/images/empathy.svg" alt="EMPATHY" />
 
-            <button>
-              <img src="/images/send.svg" alt="" />
-              <span>Send</span>
-            </button>
-          </SocialActions>
-        </Article>
+                  <span>75</span>
+                </button>
+              </li>
+              <li>
+                <a>2 comments</a>
+              </li>
+            </SocialCounts>
+            <SocialActions>
+              <button>
+                <img src="/images/like.svg" alt="" />
+                <span>Like</span>
+              </button>
+
+              <button>
+                <img src="/images/comment.svg" alt="" />
+                <span>Comment</span>
+              </button>
+
+              <button>
+                <img src="/images/share.svg" alt="" />
+                <span>Share</span>
+              </button>
+
+              <button>
+                <img src="/images/send.svg" alt="" />
+                <span>Send</span>
+              </button>
+            </SocialActions>
+          </Article>
+        </div>
+        <PostModel showModel={showModel} handleClick={handleClick} />
       </Container>
     </>
   );
