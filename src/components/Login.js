@@ -7,6 +7,7 @@ import { Redirect } from "react-router";
 const Login = (props) => {
   return (
     <Container>
+      
       {props.user && <Redirect to="/home" />}
       <Nav>
         <a>
