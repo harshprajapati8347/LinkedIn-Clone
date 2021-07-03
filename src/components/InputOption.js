@@ -10,21 +10,23 @@ const InputOption = ({ Icon, title, color }) => {
   );
 };
 
-
 const InputOptionStyled = styled.div`
+
   display: flex;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: gray;
   padding: 10px;
   cursor: pointer;
+  font-size:15px;
   &:hover {
     background-color: whitesmoke;
     border-radius: 10px;
   }
   h4 {
     margin-left: 5px;
-    font-weight:600;
+    font-weight: 600;
   }
 `;
 

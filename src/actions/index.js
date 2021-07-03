@@ -22,7 +22,7 @@ export const signInAPI = () => {
     auth
       .signInWithPopup(provider)
       .then((payload) => {
-        // console.log(payload.user);
+        console.log(payload.user);
         dispatch(setUser(payload.user));
       })
       .catch((error) => {
@@ -56,6 +56,7 @@ export const signOutAPI = () => {
 
 export const postArticleAPI = (payload) => {
   return (dispatch) => {
+    console.log(payload);
     dispatch(setLoading(true));
     if (payload.image !== "") {
       const upload = storage
@@ -78,7 +79,7 @@ export const postArticleAPI = (payload) => {
             actor: {
               description: payload.user.email,
               title: payload.user.displayName,
-              // date: payload.timestamp,
+              date: payload.image.lastModifiedDate,
               image: payload.user.photoURL,
             },
             video: payload.video,
@@ -87,6 +88,7 @@ export const postArticleAPI = (payload) => {
             description: payload.description,
           });
           dispatch(setLoading(false));
+          console.log(payload.image.lastModifiedDate);
         }
       );
     } else if (payload.video) {
@@ -95,6 +97,8 @@ export const postArticleAPI = (payload) => {
           description: payload.user.email,
           title: payload.user.displayName,
           // date: payload.timestamp,
+          date: payload.image.lastModifiedDate,
+
           image: payload.user.photoURL,
         },
         video: payload.video,
@@ -103,6 +107,7 @@ export const postArticleAPI = (payload) => {
         description: payload.description,
       });
       dispatch(setLoading(false));
+      console.log(payload.user);
     }
   };
 };
@@ -111,10 +116,10 @@ export const getArticlesAPI = () => {
   return (dispatch) => {
     let payload;
     db.collection("articles")
-      // .orderBy("actor.date", "desc")
+      .orderBy("actor.date","desc")
       .onSnapshot((snapshot) => {
         payload = snapshot.docs.map((doc) => doc.data());
-        // console.log(payload);
+        console.log(payload);
         dispatch(getArticles(payload));
       });
   };

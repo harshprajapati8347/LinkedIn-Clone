@@ -38,6 +38,7 @@ const PostModel = (props) => {
       video: videoLink,
       user: props.user,
       description: editorText,
+      timestamp: props.image,
       // timestamp: firebase.firestore.Timestamp.now(),
       // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     };
@@ -119,11 +120,40 @@ const PostModel = (props) => {
             </SharedContent>
             <ShareCreation>
               <AttachAssets>
-                <AssetButton onClick={() => switchAssetArea("image")}>
+                <AssetButton
+                  onClick={() => switchAssetArea("image")}
+                  style={{ cursor: "pointer" }}
+                >
                   <img src="/images/share-image.svg" alt="" />
+                  <HoverAdd>
+                  Add a photo
+                  </HoverAdd>
                 </AssetButton>
-                <AssetButton onClick={() => switchAssetArea("media")}>
+                {/*  */}
+                <AssetButton
+                  onClick={() => switchAssetArea("media")}
+                  style={{ cursor: "pointer" }}
+                >
                   <img src="/images/share-video.svg" alt="" />
+                </AssetButton>
+                {/*  */}
+                <AssetButton disabled="true">
+                  <img src="/images/share-document.svg" alt="" />
+                </AssetButton>
+                {/*  */}
+                <AssetButton disabled="true">
+                  <img src="/images/share-hiring.svg" alt="" />
+                </AssetButton>
+                <AssetButton disabled="true">
+                  <img src="/images/share-occation.svg" alt="" />
+                </AssetButton>
+                {/*  */}
+                <AssetButton disabled="true">
+                  <img src="/images/share-poll.svg" alt="" />
+                </AssetButton>
+                {/*  */}
+                <AssetButton disabled="true">
+                  <img src="/images/share-addToYourPost.svg" alt="" />
                 </AssetButton>
               </AttachAssets>
               <ShareComment>
@@ -188,9 +218,17 @@ const Header = styled.div`
     width: 40px;
     min-width: auto;
     color: rgba(0, 0, 0, 0.15);
+    background: transparent;
+    border: 0;
     svg,
     img {
       pointer-events: none;
+    }
+
+    &:hover {
+      background-color: lightgray;
+      border-radius: 50%;
+      transition-duration: 167ms;
     }
   }
 `;
@@ -207,7 +245,7 @@ const SharedContent = styled.div`
 const UserInfo = styled.div`
   display: flex;
   align-items: center;
-  padding: 12px 24px;
+  padding: 8px 20px;
   svg,
   img {
     width: 48px;
@@ -220,7 +258,8 @@ const UserInfo = styled.div`
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
-    margin-left: 5px;
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.78);
   }
 `;
 
@@ -230,6 +269,20 @@ const ShareCreation = styled.div`
   padding: 12px 24px 12px 16px;
 `;
 
+const HoverAdd = styled.div`
+  position: absolute;
+  bottom: 55px;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  transition-duration: 167ms;
+  text-align: center;
+  display: none;
+  cursor: pointer;
+`;
+
 const AssetButton = styled.button`
   display: flex;
   align-items: center;
@@ -237,7 +290,22 @@ const AssetButton = styled.button`
   min-width: auto;
   color: #5a5a5a;
   font-weight: 400;
+  background: transparent;
+  border: 0;
+  &:hover {
+    background-color: lightgray;
+    border-radius: 50%;
+    transition-duration: 167ms;
+  }
+  &:hover {
+    ${HoverAdd} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
 `;
+
 const AttachAssets = styled.div`
   display: flex;
   align-items: center;
@@ -267,9 +335,13 @@ const PostButton = styled.button`
   border: none;
   background: ${(props) => (props.disabled ? "rgba(0, 0, 0, 0.2)" : "#0a66c2")};
   color: ${(props) => (props.disabled ? "rgba(1 ,1 ,1 ,0.5)" : "white")};
+  transition-duration: 167ms;
+
   &:hover {
     background: ${(props) =>
       props.disabled ? "rgba(0, 0, 0, 0.08)" : "#004182"};
+    transition-duration: 167ms;
+    cursor: not-allowed;
   }
 `;
 
@@ -279,11 +351,12 @@ const Editor = styled.div`
     width: 100%;
     min-height: 100px;
     resize: none;
+    border: none;
+    font-size: 17px;
   }
   input {
     width: 100%;
     height: 35px;
-    font-size: 16px;
     margin-bottom: 20px;
   }
 `;

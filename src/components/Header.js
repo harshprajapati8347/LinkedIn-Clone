@@ -60,7 +60,7 @@ const Header = (props) => {
             <User>
               <a>
                 {props.user && props.user.photoURL ? (
-                  <img scr={props.user.photoURL} alt="" />
+                  <img src={props.user.photoURL} alt="" />
                 ) : (
                   <img src="/images/user.svg" alt="" />
                 )}
@@ -84,6 +84,10 @@ const Header = (props) => {
                 </span>
               </a>
             </Work>
+            <Premium>
+              <span>Try Premium free</span>
+              <span> for 1 month</span>
+            </Premium>
           </NavListWrap>
         </Nav>
       </Content>
@@ -113,6 +117,7 @@ const Content = styled.div`
 const Logo = styled.span`
   margin-right: 8px;
   font-size: 0px;
+  /* padding-left:0; */
 `;
 
 const Search = styled.div`
@@ -217,7 +222,7 @@ const NavList = styled.li`
   &:active {
     a {
       span {
-        color: rgba(0, 0, 0, 0.9);
+        color: rgba(0, 0, 0, 1);
       }
     }
   }
@@ -235,6 +240,11 @@ const SignOut = styled.div`
   text-align: center;
   display: none;
   cursor: pointer;
+  a {
+    font-size: 15px;
+    font-weight: 600;
+    color: blue;
+  }
 `;
 
 const User = styled(NavList)`
@@ -265,6 +275,19 @@ const User = styled(NavList)`
 
 const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
+const Premium = styled.div`
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const mapStateToProps = (state) => {

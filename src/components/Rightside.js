@@ -49,6 +49,7 @@ const Rightside = (props) => {
 
 const Container = styled.div`
   grid-area: rightside;
+  flex:0.25;
 `;
 
 const FollowCard = styled.div`

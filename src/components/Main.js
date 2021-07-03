@@ -149,6 +149,7 @@ const Main = (props) => {
 
 const Container = styled.div`
   grid-area: main;
+  flex: 0.42;
 `;
 
 const CommonCard = styled.div`
@@ -175,11 +176,15 @@ const ShareBox = styled(CommonCard)`
       font-size: 14px;
       line-height: 1.5;
       min-height: 48px;
-      background: transparent;
       border: none;
       display: flex;
       align-items: center;
-      font-weight: 600;
+      font-weight: 500;
+      cursor: pointer;
+      &:hover {
+        background-color: #f5f5f5 !important;
+        transition-duration: 167ms;
+      }
     }
     &:first-child {
       display: flex;
@@ -235,9 +240,11 @@ const SharedActor = styled.div`
       flex-basis: 0;
       margin-left: 8px;
       overflow: hidden;
+      line-height: 20px;
     }
     span {
       text-align: left;
+      padding-top: 0px !important ;
       &:first-child {
         font-size: 16px;
         font-weight: 700;

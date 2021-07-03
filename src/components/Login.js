@@ -6,31 +6,54 @@ import { Redirect } from "react-router";
 
 const Login = (props) => {
   return (
-    <Container>
-      
-      {props.user && <Redirect to="/home" />}
-      <Nav>
-        <a>
-          <img src="/images/login-logo.svg" alt="" />
-        </a>
-        <div>
-          <Join>Join now</Join>
-          <SignIn>Sign in</SignIn>
-        </div>
-      </Nav>
-      <Section>
-        <Hero>
-          <h1>Welcome to your professional community</h1>
-          <img src="/images/login-hero.svg" alt="" />
-        </Hero>
-        <Form>
-          <Google onClick={() => props.signIn()}>
-            <img src="/images/google.svg" alt="" />
-            Sign in with Google
-          </Google>
-        </Form>
-      </Section>
-    </Container>
+    <>
+      <Container>
+        {props.user && <Redirect to="/home" />}
+        <Nav>
+          <a href="/">
+            <img src="/images/login-logo.svg" alt="" />
+          </a>
+          <div>
+            <Join onClick={() => props.signIn()}>Join now</Join>
+            <SignIn onClick={() => props.signIn()}>Sign in</SignIn>
+          </div>
+        </Nav>
+        <Section>
+          <Hero>
+            <h1>Welcome to your professional community</h1>
+            <img
+              src="https://static-exp1.licdn.com/sc/h/d58zfe6h3ycgq5l1ccjpkrtdn"
+              alt=""
+            />
+          </Hero>
+          <Additional>
+            <button onClick={() => props.signIn()}>
+              <span>Search for a job</span>
+              <img src="/images/searchForJob.svg" alt="" />
+            </button>
+
+            <button onClick={() => props.signIn()}>
+              <span> Find a person you know</span>
+
+              <img src="/images/searchForJob.svg" alt="" />
+            </button>
+
+            <button onClick={() => props.signIn()}>
+              <span> Learn a new skill</span>
+
+              <img src="/images/searchForJob.svg" alt="" />
+            </button>
+          </Additional>
+
+          {/* <Quotes>
+            <h1>Connect to Opportunity</h1>
+            <h1>Responsibility Added To Your Profile</h1>
+          </Quotes> */}
+
+          {/* <img src="/images/login-hero.svg" alt="" /> */}
+        </Section>
+      </Container>
+    </>
   );
 };
 
@@ -41,7 +64,7 @@ const Container = styled.div`
 const Nav = styled.nav`
   max-width: 1128px;
   margin: auto;
-  padding: 12px 0 16px;
+  padding: 4px 0 16px;
   display: flex;
   align-items: center;
   position: relative;
@@ -51,6 +74,8 @@ const Nav = styled.nav`
   & > a {
     width: 135px;
     height: 34px;
+    cursor: pointer;
+
     @media (max-width: 768px) {
       padding: 0 5px;
     }
@@ -64,6 +89,9 @@ const Join = styled.a`
   border-radius: 4px;
   color: rgba(0, 0, 0, 0.6);
   margin-right: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
     color: rgba(0, 0, 0, 0.9);
@@ -79,13 +107,16 @@ const SignIn = styled.a`
   font-size: 16px;
   font-weight: 600;
   line-height: 40px;
-  padding: 10px 24px;
+  padding: 11px 22px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+
   &:hover {
     background-color: rgba(112, 181, 249, 0.15);
     color: #0a66c2;
     text-decoration: none;
+    border: 1px solid blue;
   }
 `;
 
@@ -94,8 +125,8 @@ const Section = styled.section`
   align-content: start;
   min-height: 700px;
   padding-bottom: 138px;
-  padding-top: 40px;
-  padding: 60px 0;
+  /* padding-top: 40px; */
+  padding: 40px 0;
   position: relative;
   flex-wrap: wrap;
   width: 100%;
@@ -125,13 +156,11 @@ const Hero = styled.div`
       line-height: 2;
     }
   }
-
   img {
-    /* z-index: -1; */
     width: 700px;
     height: 670px;
     position: absolute;
-    bottom: -2px;
+    bottom: 120px;
     right: -150px;
     @media (max-width: 768px) {
       top: 230px;
@@ -142,33 +171,81 @@ const Hero = styled.div`
   }
 `;
 
-const Form = styled.div`
-  margin-top: 100px;
-  width: 408px;
-  @media (max-width: 768px) {
-    margin-top: 20px;
-  }
-`;
+// const Quotes = styled.div`
+//   h1 {
+//     padding-top: 35px;
+//     width: 100%;
+//     font-size: 30px;
+//     color: #2977c9;
+//     font-weight: 500;
+//     line-height: 50px;
+//     @media (max-width: 768px) {
+//       text-align: center;
+//       font-size: 20px;
+//       width: 100%;
+//       line-height: 2;
+//     }
+//   }
+// `;
 
-const Google = styled.button`
+// const Form = styled.div`
+//   margin-top: 100px;
+//   width: 408px;
+//   @media (max-width: 768px) {
+//     margin-top: 20px;
+//   }
+// `;
+
+// const Google = styled.button`
+//   display: flex;
+//   justify-content: center;
+//   background-color: #fff;
+//   align-items: center;
+//   height: 56px;
+//   width: 100%;
+//   border-radius: 28px;
+//   box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
+//     inset 0 0 0 2px rgb(0 0 0 / 0%) inset 0 0 0 1px rgb(0 0 0 / 0);
+
+//   vertical-align: middle;
+//   z-index: 0;
+//   transition-duration: 167ms;
+//   font-size: 20px;
+//   color: rgba(0, 0, 0, 0.6);
+//   &:hover {
+//     background-color: rgba(207, 207, 207, 0.25);
+//     color: rgba(0, 0, 0, 0.75);
+//   }
+// `;
+
+const Additional = styled.div`
   display: flex;
-  justify-content: center;
-  background-color: #fff;
-  align-items: center;
-  height: 56px;
-  width: 100%;
-  border-radius: 28px;
-  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
-    inset 0 0 0 2px rgb(0 0 0 / 0%) inset 0 0 0 1px rgb(0 0 0 / 0);
+  flex-direction: column;
+  margin-top: 50px;
 
-  vertical-align: middle;
-  z-index: 0;
-  transition-duration: 167ms;
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.6);
-  &:hover {
-    background-color: rgba(207, 207, 207, 0.25);
-    color: rgba(0, 0, 0, 0.75);
+  button {
+    background: transparent;
+    align-items: center;
+    justify-content: left;
+    border: 1.5px solid lightgray;
+    border-radius: 7px;
+    height: 60px;
+    width: 408px;
+    margin: 0 0 16px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: left;
+    cursor: pointer;
+    &:hover {
+      -webkit-box-shadow: 0 10px 6px -6px #ecefe9;
+      -moz-box-shadow: 0 10px 6px -6px #ecefe9;
+      box-shadow: 0 10px 6px -6px #ecefe9;
+    }
+  }
+  img {
+    float: right;
   }
 `;
 
