@@ -110,11 +110,11 @@ const Main = (props) => {
                       <img src="/images/liked.svg" alt="LIKE" />
                       <img src="/images/praised.svg" alt="PRAISE" />
                       <img src="/images/empathy.svg" alt="EMPATHY" />
-                      <span>75</span>
+                      <span>75 </span>
                     </button>
                   </li>
                   <li>
-                    <a>{article.comments}</a>
+                    <a>{article.comments} comment</a>
                   </li>
                 </SocialCounts>
                 <SocialActions>
@@ -259,10 +259,19 @@ const SharedActor = styled.div`
   button {
     position: absolute;
     right: 12px;
-    top: 0;
+    top: 10px;
     background: transparent;
     border: none;
     outline: none;
+    height: 40px;
+
+    :hover {
+      background-color: rgba(0, 0, 0, 0.08);
+      border-radius: 50%;
+      transition-duration: 167ms;
+
+      /* height:40px; */
+    }
   }
 `;
 
@@ -283,6 +292,8 @@ const SharedImg = styled.div`
     object-fit: contain;
     width: 100%;
     height: 100%;
+    /* max-width:493px;
+max-height:493px; */
   }
 `;
 
@@ -296,10 +307,23 @@ const SocialCounts = styled.ul`
   border-bottom: 1px solid #e9e5df;
   list-style: none;
   li {
+    justify-content: center;
     margin-right: 5px;
     font-size: 12px;
+    display: flex;
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
     button {
       display: flex;
+      background: transparent;
+      border: none;
+      /* justify-items:space-evenly; */
+      :hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
 `;
@@ -318,6 +342,10 @@ const SocialActions = styled.div`
     padding: 8px;
     background-color: transparent;
     border: none;
+    :hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
 
     @media (min-width: 768px) {
       span {

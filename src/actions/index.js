@@ -87,8 +87,9 @@ export const postArticleAPI = (payload) => {
             comments: 0,
             description: payload.description,
           });
+
           dispatch(setLoading(false));
-          console.log(payload.image.lastModifiedDate);
+          
         }
       );
     } else if (payload.video) {
@@ -96,9 +97,7 @@ export const postArticleAPI = (payload) => {
         actor: {
           description: payload.user.email,
           title: payload.user.displayName,
-          // date: payload.timestamp,
           date: payload.image.lastModifiedDate,
-
           image: payload.user.photoURL,
         },
         video: payload.video,
@@ -107,7 +106,6 @@ export const postArticleAPI = (payload) => {
         description: payload.description,
       });
       dispatch(setLoading(false));
-      console.log(payload.user);
     }
   };
 };
@@ -116,7 +114,7 @@ export const getArticlesAPI = () => {
   return (dispatch) => {
     let payload;
     db.collection("articles")
-      .orderBy("actor.date","desc")
+      .orderBy("actor.date", "asc")
       .onSnapshot((snapshot) => {
         payload = snapshot.docs.map((doc) => doc.data());
         console.log(payload);

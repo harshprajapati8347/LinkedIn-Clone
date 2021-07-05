@@ -39,8 +39,6 @@ const PostModel = (props) => {
       user: props.user,
       description: editorText,
       timestamp: props.image,
-      // timestamp: firebase.firestore.Timestamp.now(),
-      // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
     props.postArticle(payload);
@@ -125,9 +123,7 @@ const PostModel = (props) => {
                   style={{ cursor: "pointer" }}
                 >
                   <img src="/images/share-image.svg" alt="" />
-                  <HoverAdd>
-                  Add a photo
-                  </HoverAdd>
+                  <HoverAdd>Add a photo</HoverAdd>
                 </AssetButton>
                 {/*  */}
                 <AssetButton
@@ -135,6 +131,7 @@ const PostModel = (props) => {
                   style={{ cursor: "pointer" }}
                 >
                   <img src="/images/share-video.svg" alt="" />
+                  <HoverAdd>Add a video</HoverAdd>
                 </AssetButton>
                 {/*  */}
                 <AssetButton disabled="true">
@@ -302,6 +299,7 @@ const AssetButton = styled.button`
       align-items: center;
       display: flex;
       justify-content: center;
+      left:15px;
     }
   }
 `;
@@ -341,7 +339,6 @@ const PostButton = styled.button`
     background: ${(props) =>
       props.disabled ? "rgba(0, 0, 0, 0.08)" : "#004182"};
     transition-duration: 167ms;
-    cursor: not-allowed;
   }
 `;
 
