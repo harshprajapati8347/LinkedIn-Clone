@@ -114,7 +114,7 @@ export const getArticlesAPI = () => {
   return (dispatch) => {
     let payload;
     db.collection("articles")
-      .orderBy("actor.date", "desc")
+      .orderBy("actor.date", "asc")
       .onSnapshot((snapshot) => {
         payload = snapshot.docs.map((doc) => doc.data());
         console.log(payload);

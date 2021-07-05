@@ -13,7 +13,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "firebase": "^8.6.8",
-    "firebase-tools": "^9.14.0",
+    "firebase-tools": "^9.13.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-player": "^2.9.0",
