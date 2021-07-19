@@ -87,7 +87,7 @@ const Main = (props) => {
                     <div>
                       <span>{article.actor.title}</span>
                       <span>{article.actor.description}</span>
-                      {/* <span>{article.actor.date.toDate().toLocalDateString()}</span> */}
+                      {/* <span>{article.actor.date}</span> */}
                     </div>
                   </a>
                   <button>

@@ -74,12 +74,20 @@ export const postArticleAPI = (payload) => {
         },
         (error) => console.log(error.code),
         async () => {
+          // console.log(payload.image.lastModifiedDate);
+
+          const hy = payload.image.lastModifiedDate;
+
+          const myDate = new Date(hy);
+          const myEpoch = myDate.getTime();
+          console.log(myEpoch);
           const downloadURL = await upload.snapshot.ref.getDownloadURL();
           db.collection("articles").add({
             actor: {
               description: payload.user.email,
               title: payload.user.displayName,
               date: payload.image.lastModifiedDate,
+              timestamp: myEpoch,
               image: payload.user.photoURL,
             },
             video: payload.video,
@@ -89,15 +97,21 @@ export const postArticleAPI = (payload) => {
           });
 
           dispatch(setLoading(false));
-          
         }
       );
     } else if (payload.video) {
+
+      // const hy = payload.image.lastModifiedDate;
+      // const myDate = new Date(hy);
+      // const myEpoch = myDate.getTime() / 1000;
+      // console.log(myEpoch);
+
       db.collection("articles").add({
         actor: {
           description: payload.user.email,
           title: payload.user.displayName,
-          date: payload.image.lastModifiedDate,
+          // date: payload.image.lastModifiedDate,
+          // timestamp: myEpoch,
           image: payload.user.photoURL,
         },
         video: payload.video,
@@ -105,7 +119,10 @@ export const postArticleAPI = (payload) => {
         comments: 0,
         description: payload.description,
       });
+      console.log(payload.image.lastModifiedDate);
+
       dispatch(setLoading(false));
+
     }
   };
 };
@@ -114,7 +131,7 @@ export const getArticlesAPI = () => {
   return (dispatch) => {
     let payload;
     db.collection("articles")
-      .orderBy("actor.date", "asc")
+      .orderBy("actor.timestamp", "desc")
       .onSnapshot((snapshot) => {
         payload = snapshot.docs.map((doc) => doc.data());
         console.log(payload);
