@@ -233,17 +233,25 @@ const SignOut = styled.div`
   top: 45px;
   background: white;
   border-radius: 0 0 5px 5px;
-  width: 100px;
-  height: 40px;
-  font-size: 16px;
+  width: 70px;
+  height: 35px;
+  font-size: 14px;
   transition-duration: 167ms;
   text-align: center;
   display: none;
   cursor: pointer;
+
   a {
     font-size: 15px;
     font-weight: 600;
     color: blue;
+    animation: blinker 1s linear infinite;
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
   }
 `;
 
@@ -269,6 +277,16 @@ const User = styled(NavList)`
       align-items: center;
       display: flex;
       justify-content: center;
+    }
+  }
+  @media (max-width: 768px) {
+    &:hover {
+      ${SignOut} {
+        top: -30px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 `;

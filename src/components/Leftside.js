@@ -64,6 +64,15 @@ const Leftside = (props) => {
 const Container = styled.div`
   grid-area: leftside;
   flex: 0.18;
+  position: sticky;
+  top: 52px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  height: fit-content;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ArtCard = styled.div`
@@ -101,7 +110,8 @@ const UserInfo = styled.div`
 
 const CardBackground = styled.div`
   /* background: url("/images/card-bg.svg"); */
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418)), url('https://picsum.photos/462/54');
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418)),
+    url("https://picsum.photos/462/54");
   background-position: center;
   background-size: 462px;
   height: 54px;
@@ -182,8 +192,7 @@ const CommunityCard = styled(ArtCard)`
     color: black;
     padding: 4px 12px 4px 12px;
     font-size: 12px;
-    font-weight:600;
-
+    font-weight: 600;
 
     &:hover {
       color: #0a66c2;

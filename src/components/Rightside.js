@@ -52,7 +52,7 @@ const Widgets = () => {
           )}
         </div>
 
-        <div id="widgetsMostViewedCources" className="widgets">
+        <div className="widgets">
           <div className="widgets__header">
             <h2>Today’s most viewed courses</h2>
             <InfoIcon />

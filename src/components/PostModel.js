@@ -92,7 +92,7 @@ const PostModel = (props) => {
                       onChange={handleChange}
                     />
                     <p>
-                      <label htmlFor="file">Select an image to share</label>
+                      <label htmlFor="file">Click Here To Share Image</label>
                     </p>
                     {shareImage && (
                       <img src={URL.createObjectURL(shareImage)} alt="" />
@@ -299,7 +299,7 @@ const AssetButton = styled.button`
       align-items: center;
       display: flex;
       justify-content: center;
-      left:15px;
+      left: 15px;
     }
   }
 `;
@@ -360,6 +360,15 @@ const Editor = styled.div`
 
 const UploadImage = styled.div`
   text-align: center;
+  p {
+    animation: blinker 1s linear infinite;
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+  }
   img {
     width: 100%;
   }

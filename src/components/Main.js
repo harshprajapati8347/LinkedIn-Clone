@@ -17,8 +17,7 @@ const Main = (props) => {
 
   useEffect(() => {
     props.getArticles();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -57,12 +56,14 @@ const Main = (props) => {
           </div>
           <div
             className="FeedInputOptions"
+            onClick={handleClick}
+            disabled={props.loading ? true : false}
             style={{
               display: "flex",
               justifyContent: "space-evenly",
             }}
           >
-            <InputOption Icon={TodayIcon} title="Photo" color="#70b5f9" />
+            <InputOption type="link" Icon={TodayIcon} title="Photo" color="#70b5f9" />
             <InputOption
               Icon={SubscriptionsIcon}
               title="Video"

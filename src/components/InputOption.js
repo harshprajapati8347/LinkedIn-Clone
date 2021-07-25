@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const InputOption = ({ Icon, title, color }) => {
+const InputOption = ({ Icon, title, color }, props) => {
   return (
-    <InputOptionStyled>
-      <Icon style={{ color: color, margin: "0 7px 0 -2px" }} />
-      <h4>{title}</h4>
-    </InputOptionStyled>
+    <>
+      <InputOptionStyled>
+        <Icon style={{ color: color, margin: "0 7px 0 -2px" }} />
+        <h4>{title}</h4>
+      </InputOptionStyled>
+    </>
   );
 };
 
-const InputOptionStyled = styled.div`
-
+const InputOptionStyled = styled.button`
+  background: transparent;
   display: flex;
   align-items: center;
   margin-top: 10px;
@@ -19,7 +21,7 @@ const InputOptionStyled = styled.div`
   color: gray;
   padding: 10px;
   cursor: pointer;
-  font-size:15px;
+  font-size: 15px;
   &:hover {
     background-color: whitesmoke;
     border-radius: 10px;
