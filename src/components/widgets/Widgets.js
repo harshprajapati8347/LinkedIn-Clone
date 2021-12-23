@@ -44,7 +44,11 @@ const Widgets = () => {
           top_2.map((title, i) => (
             <HeaderInfo
               key={`widgets-top_2_${i}`}
-              Icon={<FiberManualRecordIcon style={{ color: LinkedInLightBlue, fontSize: 12 }} />}
+              Icon={
+                <FiberManualRecordIcon
+                  style={{ color: LinkedInLightBlue, fontSize: 12 }}
+                />
+              }
               title={title}
               time={true}
               count={true}
@@ -52,7 +56,9 @@ const Widgets = () => {
           ))}
         <div className={classes.expand} onClick={() => setExpand(!expand)}>
           <h4>{expand ? "Show less" : "Show more"}</h4>
-          <ExpandMoreIcon style={{ transform: expand ? "rotate(180deg)" : "" }} />
+          <ExpandMoreIcon
+            style={{ transform: expand ? "rotate(180deg)" : "" }}
+          />
         </div>
       </Paper>
       <div className={classes.widgets__bottom}>
@@ -64,7 +70,12 @@ const Widgets = () => {
           <h4>Author Info</h4>
           <div>
             {author.map(({ src, url }, i) => (
-              <a href={`${url}`} key={`author-link-${i}`} rel="noreferrer nofollow" target="_blank">
+              <a
+                href={`${url}`}
+                key={`author-link-${i}`}
+                rel="noreferrer nofollow"
+                target="_blank"
+              >
                 {src}
               </a>
             ))}
@@ -74,8 +85,14 @@ const Widgets = () => {
     </div>
   );
 };
-
 const top_1 = [
+  "To Bitcoin or not to Bitcoin",
+  "Infosys, Wipro post robust numbers",
+  "Longer hours equal less productivity",
+  "Fake commute has real benefits",
+];
+
+const top_2 = [
   "Google cracks down on loan apps",
   "Byju’s new acquisition",
   "Lost password? That'll be $220M",
@@ -83,19 +100,18 @@ const top_1 = [
   "India Inc returns gingerly to office",
 ];
 
-const top_2 = [
-  "To Bitcoin or not to Bitcoin",
-  "Infosys, Wipro post robust numbers",
-  "Longer hours equal less productivity",
-  "Fake commute has real benefits",
-];
-
 const author = [
-  { src: <GitHubIcon />, url: "https://github.com/phanison898" },
-  { src: <LinkedInIcon />, url: "https://www.linkedin.com/in/phanison225/" },
-  { src: <YouTubeIcon />, url: "https://www.youtube.com/channel/UC4FAldAo2Ow_2F447yggcqA" },
-  { src: <InstagramIcon />, url: "https://www.instagram.com/phanison225/" },
-  { src: <TwitterIcon />, url: "https://twitter.com/phanison225" },
+  { src: <GitHubIcon />, url: "https://github.com/harshprajapati8347" },
+  {
+    src: <LinkedInIcon />,
+    url: "https://www.linkedin.com/in/harsh-prajapati-1780921aa/",
+  },
+  {
+    src: <YouTubeIcon />,
+    url: "https://www.youtube.com/channel/UCGrekJRFqeI7SP4o06CuxPg",
+  },
+  { src: <InstagramIcon />, url: "https://www.instagram.com/_h_a_r_s_h26/" },
+  { src: <TwitterIcon />, url: "https://twitter.com/Harsh62300719" },
 ];
 
 export default Widgets;

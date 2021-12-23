@@ -65,15 +65,15 @@ const LoginCard = () => {
 };
 
 const author = [
-  { src: <GitHubIcon />, url: "https://github.com/phanison898", color: "black" },
-  { src: <LinkedInIcon />, url: "https://www.linkedin.com/in/phanison225/", color: "#5d98d4" },
+  { src: <GitHubIcon />, url: "https://github.com/harshprajapati8347", color: "black" },
+  { src: <LinkedInIcon />, url: "https://www.linkedin.com/in/harsh-prajapati-1780921aa/", color: "#5d98d4" },
   {
     src: <YouTubeIcon />,
-    url: "https://www.youtube.com/channel/UC4FAldAo2Ow_2F447yggcqA",
+    url: "https://www.youtube.com/channel/UCGrekJRFqeI7SP4o06CuxPg",
     color: "red",
   },
-  { src: <InstagramIcon />, url: "https://www.instagram.com/phanison225/", color: "#b7066e" },
-  { src: <TwitterIcon />, url: "https://twitter.com/phanison225", color: "rgb(29 161 242)" },
+  { src: <InstagramIcon />, url: "https://www.instagram.com/_h_a_r_s_h26/", color: "#b7066e" },
+  { src: <TwitterIcon />, url: "https://twitter.com/Harsh62300719", color: "rgb(29 161 242)" },
 ];
 
 export default LoginCard;
