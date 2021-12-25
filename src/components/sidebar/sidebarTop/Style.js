@@ -32,17 +32,22 @@ export default makeStyles((theme) => ({
     width: "100%",
     "& > *": { marginTop: 5 },
   },
+  hoverUnderline: {
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
   stat: {
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
     color: "grey",
-    padding: "5px 10px",
+    padding: "10px 15px",
     cursor: "pointer",
     transition: "all 0.4s ease",
     "& > h4": {
-      fontSize: 14,
-      fontWeight: 400,
+      fontSize: 12,
+      fontWeight: 500,
       color: "grey",
     },
     "& > p": {
@@ -51,7 +56,8 @@ export default makeStyles((theme) => ({
       color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
     },
     "&:hover": {
-      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+      backgroundColor:
+        theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
   },
   myItems: {
@@ -64,7 +70,7 @@ export default makeStyles((theme) => ({
     color: theme.palette.type === "light" && darkPrimary,
     transition: "all 0.4s ease",
     "& > h4": {
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: 500,
       marginLeft: 10,
     },
@@ -72,7 +78,8 @@ export default makeStyles((theme) => ({
       fontSize: 20,
     },
     "&:hover": {
-      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+      backgroundColor:
+        theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
   },
 }));

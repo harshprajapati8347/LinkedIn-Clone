@@ -24,7 +24,7 @@ const SidebarTop = () => {
         }}
       ></div>
       <Avatar src={photoURL} />
-      <h4>{displayName}</h4>
+      <h4 className={classes.hoverUnderline}>{displayName}</h4>
       <div className={classes.stats}>
         <Divider />
         <div className={classes.stat}>
@@ -32,7 +32,7 @@ const SidebarTop = () => {
           <p>{viewed}</p>
         </div>
         <div className={classes.stat}>
-          <h4>Connections</h4>
+          <h4>Views of your post</h4>
           <p>{connections}</p>
         </div>
         <Divider />

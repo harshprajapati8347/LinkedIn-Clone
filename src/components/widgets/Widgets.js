@@ -10,7 +10,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import HeaderInfo from "../../components/util/HeadLine";
 import { LinkedInLightBlue } from "../../assets/Colors";
-import { LinkedInJobAdd } from "../../assets/images/images";
+// import { LinkedInJobAdd } from "../../assets/images/images";
 import Style from "./Style";
 
 const Widgets = () => {
@@ -62,12 +62,41 @@ const Widgets = () => {
         </div>
       </Paper>
       <div className={classes.widgets__bottom}>
-        <Paper className={classes.addBanner}>
+        {/* <Paper className={classes.addBanner}>
           <img src={LinkedInJobAdd} alt="linked-in-jub-add" />
-        </Paper>
+        </Paper> */}
+        <div className={classes.footer_extra_links}>
+          <span>
+            <a href="/">About</a>
+            <a href="/">Privacy & Terms</a>
+
+            <a href="/">Help Center</a>
+          </span>
+          <span>
+            <a href="/">Accessibility</a>
+
+            <a href="/">Ad Choices</a>
+            <a href="/">Advertising</a>
+          </span>
+          <span>
+            <a href="/">Business Services </a>
+            <a href="/">Get the app</a>
+
+            <a href="/">More</a>
+          </span>
+        </div>
+
         {/* About Author */}
         <div className={classes.about}>
-          <h4>Author Info</h4>
+          <h4>
+            <a
+              target="_blank"
+              href="https://harsh-prajapati.netlify.app/"
+              rel="noreferrer"
+            >
+              Author Info
+            </a>
+          </h4>
           <div>
             {author.map(({ src, url }, i) => (
               <a
@@ -86,10 +115,10 @@ const Widgets = () => {
   );
 };
 const top_1 = [
-  "To Bitcoin or not to Bitcoin",
-  "Infosys, Wipro post robust numbers",
-  "Longer hours equal less productivity",
-  "Fake commute has real benefits",
+  "Indian fintech giant Razorpay is now the most valued fintech startup in India",
+  "Bengluru has the second highest number of skilled AI workers in the world.",
+  "Infosys: 4th Indian firm to hit Rs. 8 trillion market cap.",
+  "Tata Motors to invest 700cr into in brand new EV division.",
 ];
 
 const top_2 = [

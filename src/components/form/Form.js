@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Chip, Paper, LinearProgress } from "@material-ui/core";
+import { Chip, Paper, LinearProgress,Avatar } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import YouTubeIcon from "@material-ui/icons/YouTube";
@@ -139,6 +139,7 @@ const Form = () => {
   return (
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
+      <Avatar className={classes.avatarPos} src={photoURL} />
         <form className={classes.header__form} onSubmit={handleSubmitButton}>
           <CreateIcon />
           <input

@@ -1,5 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { darkSecondary, LinkedInBlue, LinkedInLightBlue } from "../../assets/Colors";
+import {
+  darkSecondary,
+  LinkedInBlue,
+  LinkedInLightBlue,
+} from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   upload: {
@@ -23,6 +27,10 @@ export default makeStyles((theme) => ({
     padding: "15px 0 5px 0",
   },
 
+  avatarPos: {
+    marginRight: "10px",
+  },
+
   header__form: {
     flex: 1,
     height: 47,
@@ -33,7 +41,10 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     borderRadius: 999,
     border: "1px solid",
-    borderColor: theme.palette.type === "dark" ? "rgba(225,225,225,0.1)" : "rgba(0,0,0,0.15)",
+    borderColor:
+      theme.palette.type === "dark"
+        ? "rgba(225,225,225,0.1)"
+        : "rgba(0,0,0,0.15)",
     overflow: "hidden",
     "& > .MuiSvgIcon-root": {
       marginLeft: 10,
@@ -59,13 +70,15 @@ export default makeStyles((theme) => ({
       padding: "0 15px",
       border: 0,
       outlineWidth: 0,
-      backgroundColor: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
+      backgroundColor:
+        theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
       color: "white",
       cursor: "pointer",
       fontWeight: 600,
       transition: "all 0.4s ease",
       "&:hover": {
-        backgroundColor: theme.palette.type === "dark" ? LinkedInBlue : LinkedInLightBlue,
+        backgroundColor:
+          theme.palette.type === "dark" ? LinkedInBlue : LinkedInLightBlue,
       },
     },
   },
@@ -127,9 +140,11 @@ export default makeStyles((theme) => ({
     height: 8,
     marginRight: 5,
     borderRadius: 10,
-    backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+    backgroundColor:
+      theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     "& > *": {
-      backgroundColor: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
+      backgroundColor:
+        theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
     },
   },
 
@@ -154,7 +169,8 @@ export default makeStyles((theme) => ({
     borderRadius: 4,
     transition: "all 0.4s ease",
     "&:hover": {
-      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+      backgroundColor:
+        theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
     "& > h4": {
       fontSize: 14,

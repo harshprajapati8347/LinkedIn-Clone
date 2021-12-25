@@ -1,5 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { LinkedInBlue, LinkedInLightBlue, darkSecondary, darkPrimary } from "../../assets/Colors";
+import {
+  LinkedInBlue,
+  LinkedInLightBlue,
+  darkSecondary,
+  darkPrimary,
+} from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   widgets: {
@@ -41,13 +46,31 @@ export default makeStyles((theme) => ({
       fontWeight: 600,
     },
     "&:hover": {
-      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+      backgroundColor:
+        theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
   },
   widgets__bottom: {
     position: "sticky",
     top: "8vh",
     marginTop: 10,
+  },
+  footer_extra_links: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontSize: 12,
+    marginTop: 10,
+    "& > span": {
+      display: "flex",
+      margin: "4px",
+      "& > a": {
+        padding: "5px",
+        color: "grey",
+        cursor: "pointer",
+      },
+    },
   },
   addBanner: {
     width: "100%",
@@ -69,6 +92,10 @@ export default makeStyles((theme) => ({
     padding: 15,
     "& > h4": {
       color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
+      cursor: "pointer",
+      "& > a": {
+        color: "#353935	",
+      },
     },
     "& > div": {
       flex: 1,
