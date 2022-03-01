@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Grid, Hidden } from "@material-ui/core";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core";
+import { createTheme } from '@material-ui/core/styles'
+import { Grid, Hidden, ThemeProvider } from "@material-ui/core";
 import Login from "./components/login/Login";
 import Header from "./components/header/Header";
 import Form from "./components/form/Form";
 import Posts from "./components/posts/Posts";
 import Sidebar from "./components/sidebar/Sidebar";
 import Widgets from "./components/widgets/Widgets";
-import { LoginAction, LogoutAction } from "./store/actions/auth";
+import { LoginAction, LogoutAction } from "./actions/auth";
 import { auth } from "./firebase";
 import Styles from "./Style";
-import swal from "@sweetalert/with-react";
+// import swal from "@sweetalert/with-react";
 import { LinkedInBgColor, darkPrimary } from "./assets/Colors";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
 
   const mode = useSelector((state) => state.util);
 
-  const muiTheme = createMuiTheme({
+  const muiTheme = createTheme({
     palette: {
       type: mode ? "dark" : "light",
     },

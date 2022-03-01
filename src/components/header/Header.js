@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { ChangeTheme } from "../../store/actions/util";
+import { ChangeTheme } from "../../actions/util";
 import Logo from "../../assets/images/logo.png";
 import { Paper, Avatar, Tooltip } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
@@ -47,7 +47,9 @@ const Header = () => {
     <Paper elevation={0} className={classes.header}>
       <div className={classes.header__container}>
         <div className={classes.header__logo}>
-          <img src={Logo} alt="logo" />
+          <a href="/" alt="linkedinLogo">
+            <img src={Logo} alt="logo" />
+          </a>
           <div className={classes.search}>
             <SearchIcon />
             <input placeholder="Search" />
@@ -56,7 +58,13 @@ const Header = () => {
         </div>
         <div className={classes.header__nav}>
           {items.map(({ Icon, title, arrow, onClick }, i) => (
-            <MenuItem key={i} Icon={Icon} title={title} arrow={arrow} onClick={onClick} />
+            <MenuItem
+              key={i}
+              Icon={Icon}
+              title={title}
+              arrow={arrow}
+              onClick={onClick}
+            />
           ))}
           <MenuItem
             key={"mode"}

@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     padding: "0 10px",
-    "& > img": {
+    "& > a > img": {
       height: 32,
       [theme.breakpoints.down("xs")]: {
         height: 28,

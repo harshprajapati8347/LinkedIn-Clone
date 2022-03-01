@@ -4,6 +4,7 @@ import FlipMove from "react-flip-move";
 import Post from "./post/Post";
 import Animation from "../animations/Animation";
 import Loading from "../../assets/images/loading-dots.json";
+
 import db from "../../firebase";
 
 const Posts = () => {
