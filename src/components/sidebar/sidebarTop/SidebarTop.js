@@ -23,7 +23,7 @@ const SidebarTop = () => {
           backgroundImage: `url("https://tandsgo.com/wp-content/uploads/2020/02/Abstract-blue-and-orange-pattern.jpg")`,
         }}
       ></div>
-      <Avatar src={photoURL} />
+      <Avatar src={photoURL} className={classes.avatar}/>
       <h4 className={classes.hoverUnderline}>{displayName}</h4>
       <div className={classes.stats}>
         <Divider />
